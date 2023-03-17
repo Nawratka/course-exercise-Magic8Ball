@@ -17,7 +17,6 @@ setTimeout(checkInput, 1000);
 }
 
 const checkInput = () => {
-    ball.classList.remove('shake-animation');
 	if (input.value !== '' && input.value.slice(-1) === '?') {
 		generateAnswer();
 		error.textContent = '';
@@ -28,11 +27,12 @@ const checkInput = () => {
 		error.textContent = 'Musisz zadać jakieś pytanie';
         answer.textContent = '';
     }
+	ball.classList.remove('shake-animation');
 };
 
 const generateAnswer = () => {
-	const number = Math.floor(Math.random()) * 5;
-	answer.innerHTML = `<span>Odpowiedź: </span> ${answersArr[number]}`;
+	const number = Math.floor(Math.random() * 5);
+	answer.innerHTML = `<span>Odpowiedź:</span> ${answersArr[number]}`;
 };
 
 ball.addEventListener('click', shakeBall);
